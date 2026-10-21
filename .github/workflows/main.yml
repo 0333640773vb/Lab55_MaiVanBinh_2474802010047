@@ -1,4 +1,24 @@
-      - name: 4. Chạy bộ Test tự động
+name: GoRest CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  api-testing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run tests
         run: |
           ls -la
           newman run *.postman_collection.json -e *.postman_environment.json
