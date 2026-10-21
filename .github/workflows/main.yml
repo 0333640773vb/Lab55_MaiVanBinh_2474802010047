@@ -1,4 +1,0 @@
-      - name: Run tests
-        run: |
-          newman run "2474802010047_MaiVanBinh_GoRest.postman_collection.json" \
-            -e "2474802010047_MaiVanBinh_GoRest_Env.postman_environment.json"
